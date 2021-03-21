@@ -1,6 +1,5 @@
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
-
 export const CREATE_POST = "CREATE_POST";
-export const CREATE_LOADING = "CREATE_LOADING";
-export const CREATE_SUCCESS = "CREATE_SUCCESS";
-export const CREATE_FAILED = "CREATE_FAILED";
+export const LOADING = "LOADING";
+export const SUCCESS = "SUCCESS";
+export const FAILED = "FAILED";

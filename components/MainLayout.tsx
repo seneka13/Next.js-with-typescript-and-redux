@@ -20,8 +20,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
 const Main = styled.main`
   margin: 0 auto;
-  padding: 40px 30px;
+  padding: 50px 30px;
   width: 100%;
+  min-height: 100vh;
 `;
 
 export default MainLayout;

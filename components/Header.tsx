@@ -10,7 +10,7 @@ const Header: React.FC = () => {
           <a>Post Blog</a>
         </Link>
       </Logo>
-      <Link href="/post/newPost">
+      <Link href="/posts/newPost">
         <StyledLink>Create Post</StyledLink>
       </Link>
     </StyledHeader>

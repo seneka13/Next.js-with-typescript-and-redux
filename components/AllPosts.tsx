@@ -12,10 +12,10 @@ export default function AllPosts() {
     <CardContainer>
       {posts.map((post: Post) => {
         return (
-          <Card key={post.id}>
+          <Card key={post?.id}>
             <CardTitle>
-              {post.title}
-              <CardButton onClick={() => dispatch(deletePost(post.id))}>
+              {post?.title}
+              <CardButton onClick={() => dispatch(deletePost(post?.id))}>
                 <Image
                   src="/close.svg"
                   alt="delete-cross"
@@ -24,9 +24,9 @@ export default function AllPosts() {
                 />
               </CardButton>
             </CardTitle>
-            <CardBody>{post.body}</CardBody>
+            <CardBody>{post?.body}</CardBody>
             <CardFooter>
-              <Link href={`/posts/[id]`} as={`/posts/${post.id}`}>
+              <Link href={`/posts/[id]`} as={`/posts/${post?.id}`}>
                 <a>Watch post</a>
               </Link>
             </CardFooter>
@@ -82,7 +82,7 @@ const CardFooter = styled.div`
   width: 100%;
   text-align: end;
   font-size: 1rem;
-  color: #1890ff;
+  color: #777;
 `;
 
 const CardContainer = styled.div`

@@ -1,5 +1,6 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { AnyAction } from "redux";
+import { Post } from "../../interfaces";
 import * as types from "../actionTypes";
 import stateCreator from "./stateCreator";
 
@@ -25,6 +26,15 @@ export const postReducer = (state = initialState, action: AnyAction) => {
         ...state,
         currentState: stateCreator("success"),
         allPosts: [...state.allPosts, action.payload],
+      };
+    case types.POST_DELETE:
+      return {
+        ...state,
+        allPosts: [
+          ...state.allPosts.filter(
+            (post: Post): boolean => post.id !== action.postId
+          ),
+        ],
       };
     case types.FAILED:
       return { ...state, currentState: stateCreator("failed", action.error) };

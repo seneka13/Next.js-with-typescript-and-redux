@@ -3,17 +3,21 @@ import { NextPageContext, NextPage } from "next";
 import { Divider, Typography } from "antd";
 import styled from "styled-components";
 import { PostPageProps } from "../../interfaces";
+import MockComments from "../../components/MockComments";
 
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 const PostDetail: NextPage<PostPageProps> = ({ data }) => {
   return (
     <>
-      <Title>{data.title}</Title>
+      <Title style={{ textAlign: "center" }}>{data.title}</Title>
       <Divider>Description</Divider>
       <Paragraph>
-        <Text>{data.body}</Text>
+        <blockquote>
+          <Text>{data.body}</Text>
+        </blockquote>
       </Paragraph>
+      <MockComments />
     </>
   );
 };

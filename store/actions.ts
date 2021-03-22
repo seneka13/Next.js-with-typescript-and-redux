@@ -22,12 +22,11 @@ export const createNewPost = (postBody: SendPost) => async (
 export const deletePost = (postId: number) => async (
   dispatch: ThunkDispatch<null, void, AnyAction>
 ) => {
-  dispatch({ type: types.LOADING });
   try {
     const { data } = await axios.delete(
       `https://simple-blog-api.crew.red/posts/${postId}`
     );
-    window.location.reload(); // Ужасный способ актуализировать информацию, но по времени не успел
+    dispatch({ type: types.POST_DELETE, postId });
   } catch (error) {
     dispatch({ type: types.FAILED, error });
   }

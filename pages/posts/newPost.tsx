@@ -93,7 +93,8 @@ const NewPost: React.FC = () => {
 };
 
 const Form = styled.form`
-  width: 350px;
+  min-width: 300px;
+  max-width:400px;
   height: 400px;
   margin: 50px auto;
   padding: 15px;

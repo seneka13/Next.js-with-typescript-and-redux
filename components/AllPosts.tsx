@@ -26,7 +26,7 @@ export default function AllPosts() {
             </CardTitle>
             <CardBody>{post.body}</CardBody>
             <CardFooter>
-              <Link  href={`/posts/[id]`} as={`/posts/${post.id}`}>
+              <Link href={`/posts/[id]`} as={`/posts/${post.id}`}>
                 <a>Watch post</a>
               </Link>
             </CardFooter>
@@ -77,12 +77,12 @@ const CardButton = styled.button`
 `;
 
 const CardFooter = styled.div`
-    padding:15px;
+  padding: 15px;
   height: 40px;
   width: 100%;
-  text-align:end;
-  font-size:1rem;
-  color:#1890ff;
+  text-align: end;
+  font-size: 1rem;
+  color: #1890ff;
 `;
 
 const CardContainer = styled.div`

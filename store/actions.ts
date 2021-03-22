@@ -24,8 +24,10 @@ export const deletePost = (postId: number) => async (
 ) => {
   dispatch({ type: types.LOADING });
   try {
-    const {data} = await axios.delete(`https://simple-blog-api.crew.red/posts/${postId}`);
-    window.location.reload() // Ужасный способ актуализировать информацию, но по времени не успел
+    const { data } = await axios.delete(
+      `https://simple-blog-api.crew.red/posts/${postId}`
+    );
+    window.location.reload(); // Ужасный способ актуализировать информацию, но по времени не успел
   } catch (error) {
     dispatch({ type: types.FAILED, error });
   }

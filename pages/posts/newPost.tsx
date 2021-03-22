@@ -37,7 +37,7 @@ const NewPost: React.FC = () => {
       });
     } else {
       setWarning(true);
-      setTimeout(() => setWarning(false), 3000);
+    //   setTimeout(() => setWarning(false), 3000);
     }
   };
 
@@ -51,7 +51,7 @@ const NewPost: React.FC = () => {
 
   return (
     <>
-      {warning && (
+      {(warning && !success) && (
         <Alert
           message="You need to fill all fields to send"
           type="warning"

@@ -4,7 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First install all packages, and then, run the development server:
 
-npm install or yarn add
+```bash
+npm install
+# or
+yarn add
+```
+
 ```bash
 npm run dev
 # or

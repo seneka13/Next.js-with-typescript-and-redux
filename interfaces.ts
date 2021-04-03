@@ -11,7 +11,7 @@ export interface SendPost {
 
 export interface CommentProps {
   id?: number;
-  postId: number;
+  postId?: number;
   body: string;
 }
 
@@ -23,7 +23,7 @@ export interface SendComment {
 export interface PostsState {
   posts: {
     allPosts: Post[];
-    comments:CommentProps[]
+    comments: CommentProps[];
   };
 }
 

@@ -5,7 +5,7 @@ import { PostPageProps, CommentProps, PostsState } from "../../interfaces";
 import styled from "styled-components";
 import MockComments from "../../components/MockComments";
 import { EditModal } from "../../components/EditModal";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { ReactNode, SyntheticEvent, useEffect, useState } from "react";
 import { getComment, sendComment } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,8 +14,7 @@ const { Title, Paragraph, Text } = Typography;
 const PostDetail: NextPage<PostPageProps> = ({ data }) => {
   const [comment, setComment] = useState("");
   const dispatch = useDispatch();
-    const commentsArr = useSelector(({posts}: PostsState)=> posts.comments)
-    console.log(commentsArr)
+  const commentsArr = useSelector(({ posts }: PostsState) => posts.comments);
   useEffect(() => {
     dispatch(getComment());
   }, []);
@@ -39,10 +38,12 @@ const PostDetail: NextPage<PostPageProps> = ({ data }) => {
         </blockquote>
       </Paragraph>
       {commentsArr?.length > 0 &&
-        commentsArr.map((item: CommentProps) => {
-          console.log(item);
-          return <MockComments commentBody = {item}/>;
-        })}
+        commentsArr.map(
+          (item: CommentProps): ReactNode => {
+            console.log(item);
+            return <MockComments key={item.id} commentBody={item} />;
+          }
+        )}
 
       <Form>
         <TextArea

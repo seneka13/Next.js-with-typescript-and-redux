@@ -66,8 +66,9 @@ export const getComment = () => async (
   dispatch: ThunkDispatch<null, void, AnyAction>
 ) => {
   try {
-    const { data } = await axios.get("https://bloggy-api.herokuapp.com/comments");
+    const { data } = await axios.get(
+      "https://bloggy-api.herokuapp.com/comments"
+    );
     dispatch({ type: types.GET_COMMENT, payload: data });
-    console.log(data)
   } catch (error) {}
 };

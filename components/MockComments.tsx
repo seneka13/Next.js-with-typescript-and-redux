@@ -7,8 +7,9 @@ import {
   LikeFilled,
 } from "@ant-design/icons";
 import React, { useState } from "react";
+import { CommentProps } from "../interfaces";
 
-const MockComments = () => {
+const MockComments: React.FC<CommentProps> = ({ commentBody }) => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState("");
@@ -47,28 +48,6 @@ const MockComments = () => {
     <>
       <Comment
         actions={actions}
-        author={<a>Sam Mos</a>}
-        avatar={
-          <Avatar
-            src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
-            alt="Han Solo"
-          />
-        }
-        content={
-          <p>
-            We supply a series of design principles, practical patterns and high
-            quality design resources (Sketch and Axure), to help people create
-            their product prototypes beautifully and efficiently.
-          </p>
-        }
-        datetime={
-          <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
-            <span>{moment().fromNow()}</span>
-          </Tooltip>
-        }
-      />
-      <Comment
-        actions={actions}
         author={<a>Han Solo</a>}
         avatar={
           <Avatar
@@ -76,7 +55,7 @@ const MockComments = () => {
             alt="Han Solo"
           />
         }
-        content={<p>Комментарии для наглядности</p>}
+        content={<p>{commentBody.body}</p>}
         datetime={
           <Tooltip title={moment().format("YYYY-MM-DD HH:mm:ss")}>
             <span>{moment().fromNow()}</span>

@@ -9,9 +9,21 @@ export interface SendPost {
   title: string;
 }
 
+export interface CommentProps {
+  id?: number;
+  postId: number;
+  body: string;
+}
+
+export interface SendComment {
+  postId: number;
+  body: string;
+}
+
 export interface PostsState {
   posts: {
     allPosts: Post[];
+    comments:CommentProps[]
   };
 }
 

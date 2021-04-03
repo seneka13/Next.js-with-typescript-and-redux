@@ -1,6 +1,9 @@
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const POST_DELETE = "POST_DELETE";
+export const POST_UPDATE = "POST_UPDATE";
+export const GET_COMMENT = "GET_COMMENT";
+export const POST_COMMENT = "POST_COMMENT";
 export const LOADING = "LOADING";
 export const SUCCESS = "SUCCESS";
 export const FAILED = "FAILED";

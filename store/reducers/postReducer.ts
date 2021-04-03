@@ -12,6 +12,7 @@ const initialState = {
     error: "",
   },
   allPosts: [],
+  comments: [],
 };
 export const postReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
@@ -36,6 +37,23 @@ export const postReducer = (state = initialState, action: AnyAction) => {
           ),
         ],
       };
+    case types.POST_UPDATE:
+      return {
+        ...state,
+        allPosts: [
+          ...state.allPosts.map((post: Post) => {
+            if (post.id === action.postId) {
+              return { ...post, ...action.postBody };
+            }
+            return post;
+          }),
+        ],
+      };
+
+    case types.GET_COMMENT:
+      return { ...state, comments: [...action.payload] };
+    case types.POST_COMMENT:
+      return { ...state, comments: [...state.comments, action.payload] };
     case types.FAILED:
       return { ...state, currentState: stateCreator("failed", action.error) };
     default:

@@ -5,6 +5,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { LoadingState } from "../../interfaces";
 import { createNewPost } from "../../store/actions";
+import { useRouter } from "next/router";
 
 const antIcon = (
   <LoadingOutlined style={{ fontSize: 40, color: "grey" }} spin />
@@ -17,6 +18,7 @@ const NewPost: React.FC = () => {
     body: "",
   });
   const [warning, setWarning] = useState(false);
+  const router = useRouter();
 
   const { loading, success, failed } = useSelector(
     ({ posts }: LoadingState) => ({
@@ -35,9 +37,10 @@ const NewPost: React.FC = () => {
         title: "",
         body: "",
       });
+      router.push("/");
     } else {
       setWarning(true);
-    //   setTimeout(() => setWarning(false), 3000);
+      //   setTimeout(() => setWarning(false), 3000);
     }
   };
 
@@ -51,7 +54,7 @@ const NewPost: React.FC = () => {
 
   return (
     <>
-      {(warning && !success) && (
+      {warning && !success && (
         <Alert
           message="You need to fill all fields to send"
           type="warning"
@@ -94,7 +97,7 @@ const NewPost: React.FC = () => {
 
 const Form = styled.form`
   min-width: 300px;
-  max-width:400px;
+  max-width: 400px;
   height: 400px;
   margin: 50px auto;
   padding: 15px;

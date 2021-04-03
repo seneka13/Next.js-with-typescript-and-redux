@@ -12,10 +12,10 @@ export default function AllPosts() {
     <CardContainer>
       {posts.map((post: Post) => {
         return (
-          <Card key={post?.id}>
+          <Card key={post.id}>
             <CardTitle>
-              {post?.title}
-              <CardButton onClick={() => dispatch(deletePost(post?.id))}>
+              {post.title}
+              <CardButton onClick={() => dispatch(deletePost(post.id))}>
                 <Image
                   src="/close.svg"
                   alt="delete-cross"
@@ -26,7 +26,7 @@ export default function AllPosts() {
             </CardTitle>
             <CardBody>{post?.body}</CardBody>
             <CardFooter>
-              <Link href={`/posts/[id]`} as={`/posts/${post?.id}`}>
+              <Link href={`/posts/[id]`} as={`/posts/${post.id}`}>
                 <a>Watch post</a>
               </Link>
             </CardFooter>
@@ -39,10 +39,11 @@ export default function AllPosts() {
 
 const Card = styled.div`
   width: 300px;
-  min-height: 300px;
+  min-height: 350px;
   border: 2px solid #f0f0f0;
   border-radius: 5px;
   transition: transform ease 0.4s;
+  word-wrap: break-word;
   &:hover {
     transform: scale(1.03);
     cursor: pointer;
@@ -50,26 +51,34 @@ const Card = styled.div`
 `;
 
 const CardTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
   padding: 10px;
   min-height: 50px;
   background: #fafafa;
   border-bottom: 1px solid #f0f0f0;
   font-size: 1.1rem;
   font-weight: 600;
+  position: relative;
+  word-wrap: break-word;
 `;
 
 const CardBody = styled.div`
   padding: 10px;
-  height: 65%;
+  min-height: 250px;
   font-size: 1rem;
 `;
 
 const CardButton = styled.button`
-  background: none;
-  border: none;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  right: -15px;
+  top: -10px;
   &:hover {
     box-shadow: 1px 0px 5px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;

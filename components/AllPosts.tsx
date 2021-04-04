@@ -9,9 +9,11 @@ export default function AllPosts() {
   const posts = useSelector(({ posts }: PostsState) => posts.allPosts);
   const dispatch = useDispatch();
   return (
+      
     <CardContainer>
       {posts.map((post: Post) => {
         return (
+<div>
           <Card key={post.id}>
             <CardTitle>
               {post.title}
@@ -31,9 +33,11 @@ export default function AllPosts() {
               </Link>
             </CardFooter>
           </Card>
+          </div>
         );
       })}
     </CardContainer>
+   
   );
 }
 

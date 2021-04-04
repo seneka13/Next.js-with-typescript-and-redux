@@ -9,35 +9,33 @@ export default function AllPosts() {
   const posts = useSelector(({ posts }: PostsState) => posts.allPosts);
   const dispatch = useDispatch();
   return (
-      
     <CardContainer>
       {posts.map((post: Post) => {
         return (
-<div>
-          <Card key={post.id}>
-            <CardTitle>
-              {post.title}
-              <CardButton onClick={() => dispatch(deletePost(post.id))}>
-                <Image
-                  src="/close.svg"
-                  alt="delete-cross"
-                  height={15}
-                  width={15}
-                />
-              </CardButton>
-            </CardTitle>
-            <CardBody>{post?.body}</CardBody>
-            <CardFooter>
-              <Link href={`/posts/[id]`} as={`/posts/${post.id}`}>
-                <a>Watch post</a>
-              </Link>
-            </CardFooter>
-          </Card>
+          <div>
+            <Card key={post.id}>
+              <CardTitle>
+                {post.title}
+                <CardButton onClick={() => dispatch(deletePost(post.id))}>
+                  <Image
+                    src="/close.svg"
+                    alt="delete-cross"
+                    height={15}
+                    width={15}
+                  />
+                </CardButton>
+              </CardTitle>
+              <CardBody>{post?.body}</CardBody>
+              <CardFooter>
+                <Link href={`/posts/[id]`} as={`/posts/${post.id}`}>
+                  <a>Watch post</a>
+                </Link>
+              </CardFooter>
+            </Card>
           </div>
         );
       })}
     </CardContainer>
-   
   );
 }
 
